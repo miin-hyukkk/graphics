@@ -26,20 +26,20 @@ window.onload = function init()
     gl = WebGLUtils.setupWebGL( canvas );
     if ( !gl ) { alert( "WebGL isn't available" ); }
 
+
+
     var mySphere = sphere();
     mySphere.scale(0.5, 0.5, 0.5);
     mySphere.rotate(45.0, [ 1, 1, 1]);
-    mySphere.translate(-0.1, -0.3, 0.0);
+    mySphere.translate(0.0, 0.5, 0.0);
 
-    //cylinder
     var myCylinder = cylinder(72, 3, true);
     myCylinder.scale(0.3, 1.0, 0.3);
     myCylinder.rotate(0.0, [ 1, 1, 1]);
-    myCylinder.translate(-0.1, 0.25, 0.0);
+    myCylinder.translate(0.0, -0.1, 0.0);
 
-    points = points.concat(mySphere.TriangleVertices,myCylinder.TriangleVertices);
-    colors = colors.concat(mySphere.TriangleVertexColors,myCylinder.TriangleVertexColors);
-
+    points = points.concat(myCylinder.TriangleVertices ,mySphere.TriangleVertices);
+    colors = colors.concat(myCylinder.TriangleVertexColors, mySphere.TriangleVertexColors);
 
 
     gl.viewport( 0, 0, canvas.width, canvas.height );
